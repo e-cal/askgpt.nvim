@@ -58,6 +58,7 @@ M.ask = function()
 		utils.get_hover_text(bufnr, buf_params, function(htext)
 			if htext then
 				local lines = vim.split(htext, "\n", true)
+				table.insert(lines, config.config.default_prompt.n)
 				vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, lines)
 			end
 		end)
@@ -65,6 +66,7 @@ M.ask = function()
 		local lines = utils.get_visual_lines(bufnr)
 		table.insert(lines, 1, "```" .. filetype)
 		table.insert(lines, "```")
+		table.insert(lines, config.config.default_prompt.v)
 		vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, lines)
 	else
 		return

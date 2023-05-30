@@ -1,6 +1,10 @@
 local M = {}
 function M.defaults()
 	local defaults = {
+		default_prompt = {
+			n = "Where is this from, what does it do, and how is it used? Show me an example.",
+			v = "",
+		},
 		params = {
 			model = "gpt-3.5-turbo",
 			frequency_penalty = 0,

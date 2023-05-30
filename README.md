@@ -29,6 +29,11 @@ Default config:
 
 ```lua
 {
+    -- Text that will be appended to the input text in the popup buffer
+		default_prompt = {
+			n = "Where is this from, what does it do, and how is it used? Show me an example.",
+			v = "",
+		},
     -- API request params. See https://platform.openai.com/docs/api-reference/chat/create
     params = {
         model = "gpt-3.5-turbo",
@@ -61,12 +66,17 @@ vim.keymap.set("n", "?", "<cmd>Ask<CR>")
 vim.keymap.set("v", "?", "<cmd>Ask<CR>")
 ```
 
-This command will open a popup window with some text in it.
+This command will open an editable popup window with some text in it.
 
 - Visual mode: the text will be whatever was selected, wrapped in ` ```<lang> ``` ` (markdown formatting for code with the language indicated).
 - Normal mode: the text will be the hover text from your LSP for the symbol under your cursor
+
+Pressing your `submit` bind (`<C-d>` by default) will send the window content to gpt-3.5-turbo and write its response below.
+
+You can edit, copy/paste from, etc in the popup as you would any other buffer.
 
 ## Why?
 
 - I'm always copy-pasting code into ChatGPT or GPT-4, asking it to explain or how to use a function from some library I'm not familiar with
 - This speeds up the process a ton and keeps me in my workflow
+- Very useful for quick questions about chunks of code or usage when the hover text isn't enough
