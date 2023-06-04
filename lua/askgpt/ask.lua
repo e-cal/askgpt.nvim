@@ -24,10 +24,15 @@ M.ask = function()
 			width = "75%",
 			height = "60%",
 		},
+		text = {
+			top = "AskGPT",
+		},
 	})
 
 	-- mount/open the component
 	popup:mount()
+	local width = vim.api.nvim_win_get_width(popup.win_id)
+	vim.api.nvim_buf_set_option(popup.bufnr, "textwidth", width)
 
 	-- unmount component when cursor leaves buffer
 	popup:on(event.BufLeave, function()
