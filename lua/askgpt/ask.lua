@@ -31,7 +31,7 @@ M.ask = function()
 
 	-- mount/open the component
 	popup:mount()
-	local width = vim.api.nvim_win_get_width(popup.win_id)
+	local width = vim.api.nvim_win_get_width(0)
 	vim.api.nvim_buf_set_option(popup.bufnr, "textwidth", width)
 
 	-- unmount component when cursor leaves buffer
