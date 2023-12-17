@@ -9,8 +9,12 @@ M.setup = function(opts)
 	api.setup()
 end
 
-M.ask = function()
-	ask.ask()
+M.ask = function(opts)
+	ask.ask(opts)
+end
+
+M.submit = function()
+	ask.submit()
 end
 
 return M

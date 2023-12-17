@@ -1,12 +1,8 @@
 local M = {}
 function M.defaults()
 	local defaults = {
-		default_prompt = {
-			n = "Where is this from, what does it do, and how is it used? Show me an example.",
-			v = "",
-		},
 		params = {
-			model = "gpt-3.5-turbo",
+			model = "gpt-4-0613",
 			frequency_penalty = 0,
 			presence_penalty = 0,
 			max_tokens = 300,
@@ -14,10 +10,13 @@ function M.defaults()
 			top_p = 1,
 			n = 1,
 		},
-		binds = {
-			submit = "<C-d>",
+		keymap = {
+            ask = "<C-g>",
+			submit = "<cr>",
 			close = "q",
 		},
+		split_size = 15,
+		vsplit_size = 15,
 	}
 	return defaults
 end
